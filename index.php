@@ -1,6 +1,6 @@
 <?
 // Определение константы для запрета прямого доступа к файлам
-define('SW_CONSTANT', 1);
+define('CONSTANT', 1);
 
 // Путь к корневой директории
 define('DIR_ROOT', $_SERVER['DOCUMENT_ROOT']);
