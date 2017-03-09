@@ -7,9 +7,9 @@ define('DIR_ROOT', $_SERVER['DOCUMENT_ROOT']);
 
 // Настройки БД
 define('DB_HOST', '127.0.0.1'); // Хост
-define('DB_NAME', 'laravel'); 		// Имя базы данных
-define('DB_USER', 'root'); 			// Пользователь
-define('DB_PASS', ''); 				// Пароль пользователя
+define('DB_NAME', 'test'); 		// Имя базы данных
+define('DB_USER', 'root'); 		// Пользователь
+define('DB_PASS', ''); 			// Пароль пользователя
 
 // Кодировка сайта
 header('Content-type: text/html; Charset= UTF- 8');

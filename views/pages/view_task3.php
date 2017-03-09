@@ -4,10 +4,10 @@
     <div class="container">
 
         <h1 class="page-header">Задача 3</h1>
-        <h2 class="sub-header">Случайный текст</h2>
-        <p><?=($data['text']) ? $data['text'] : 'Файл не найден';?></p>
-        <hr>
-        <h2 class="sub-header">Полученный результат</h2>
+        <h2 class="sub-header">Вывод дерева</h2>
+        <a class="btn btn-default" href="/test/task3">Таблица дерева</a>
+        <a class="btn btn-default" href="/test/fill">Заполнить таблицу</a>
+        <a class="btn btn-default" href="/test/tree">Дерево</a>
 <!--        <table class="table table-striped table-hover">-->
 <!--            <thead>-->
 <!--            <tr>-->
