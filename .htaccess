@@ -1,0 +1,10 @@
+# Кодировка сайта
+AddDefaultCharset utf-8
+AddCharset utf-8 *
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+# Перенаправление на единую точку доступа
+RewriteRule !\.(css|js|jpg|png|gif|ini|map|ttf|woff|woff2|svg|eot|txt|ico|mp4|ogg|webm)$ index.php
+</IfModule>
