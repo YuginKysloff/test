@@ -183,15 +183,31 @@ class Controller_Test {
      */
     public function task6() {
 
+        // Начало выполнения
+        $start = microtime();
+
         // Создание тестового массива
+        $result = [];
         for($i = 0; $i < 1000000; $i++) {
             $result[$i] = mt_rand(100000, 1500000);
         }
 
-        $this->data['result'] = array_count_values($result);
-        foreach($this->data['result'] as $key => $item) {
-            if($item < 2) unset($this->data['result'][$key]);
+        // Поиск повторяющихся элементов
+        $result = array_count_values($result);
+
+        // Удаление неповторяющихся элементов
+        foreach($result as $key => $item) {
+            if($item < 2) unset($result[$key]);
         }
+
+        // Подсчет повторяющихся элементов
+        $this->data['count'] = count($result);
+
+        // Конец выполнения
+        $end = microtime();
+
+        // Время выполнения
+        $this->data['time'] = round($end - $start, 4);
 
         // Возвращение вида
         $page = Core_View::load('task6', $this->data);
