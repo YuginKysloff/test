@@ -24,7 +24,7 @@
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li <?=($data['route']['method'] == 'index') ? 'class="active"' : ''?>><a href="/">Резюме</a></li>
-                        <? for($i = 1; $i < 9; $i++):?>
+                        <? for($i = 1; $i < 8; $i++):?>
                             <li <?=($data['route']['method'] == 'task'.$i) ? 'class="active"' : ''?>><a href="/test/task<?=$i;?>">Задача <?=$i;?></a></li>
                         <? endfor;?>
                     </ul>

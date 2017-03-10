@@ -173,6 +173,8 @@ class Controller_Test {
      */
     public function task5() {
 
+        $this->data['result'] = $this->obj['model_table']->getQuery5();
+
         // Возвращение вида
         $page = Core_View::load('task5', $this->data);
         return $page;
@@ -187,21 +189,21 @@ class Controller_Test {
         $start = microtime();
 
         // Создание тестового массива
-        $result = [];
+        $arr = [];
         for($i = 0; $i < 1000000; $i++) {
-            $result[$i] = mt_rand(100000, 1500000);
+            $arr[$i] = mt_rand(100000, 1500000);
         }
 
         // Поиск повторяющихся элементов
-        $result = array_count_values($result);
+        $arr = array_count_values($arr);
 
         // Удаление неповторяющихся элементов
-        foreach($result as $key => $item) {
-            if($item < 2) unset($result[$key]);
+        foreach($arr as $key => $item) {
+            if($item < 2) unset($arr[$key]);
         }
 
         // Подсчет повторяющихся элементов
-        $this->data['count'] = count($result);
+        $this->data['count'] = count($arr);
 
         // Конец выполнения
         $end = microtime();
@@ -219,18 +221,39 @@ class Controller_Test {
      */
     public function task7() {
 
+        $input = [
+            0 => ['a1', 'a2', 'a3'],
+            1 => ['b1', 'b2'],
+            2 => ['c1', 'c2', 'c3'],
+            3 => ['d1'],
+            4 => ['e1', 'e2', 'e3', 'e4'],
+        ];
+
+        $this->data['input'] = $input;
+        $this->data['result'] = $this->cartesian($input);
+
         // Возвращение вида
         $page = Core_View::load('task7', $this->data);
         return $page;
     }
 
     /**
-     * Задача 8
+     * Функция вычисления декартова произведения для задачи 7
+     * @param array $arr - массив для произведения
+     * @return array
      */
-    public function task8() {
-
-        // Возвращение вида
-        $page = Core_View::load('task8', $this->data);
-        return $page;
+    private function cartesian($arr) {
+        $result = [[]];
+        foreach ($arr as $key => $value) {
+            $append = [];
+            foreach($result as $product) {
+                foreach($value as $item) {
+                    $product[$key] = $item;
+                    $append[] = $product;
+                }
+            }
+            $result = $append;
+        }
+        return $result;
     }
 }

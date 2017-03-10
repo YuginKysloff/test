@@ -5,10 +5,10 @@
         <div class="resume">
             <p class="resume__body">
             <p class="resume__title">Киселев Юрий Викторович</p>
-            <p>Мужчина, 40 лет, родился
+            <p>Мужчина, 45 лет, родился
                 <text>4</text>
                 <text>января</text>
-                <text>1977</text>
+                <text>1971</text>
             </p>
             <br>
             <p>+380 (99) 7268566</p>

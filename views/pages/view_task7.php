@@ -3,31 +3,24 @@
 
     <div class="container">
         <h1 class="page-header">Задача 7</h1>
-        <h2 class="sub-header"></h2>
-        <!--        <table class="table table-striped table-hover">-->
-        <!--            <thead>-->
-        <!--            <tr>-->
-        <!--                <th>ID</th>-->
-        <!--                <th>Name</th>-->
-        <!--                <th>Parent</th>-->
-        <!--            </tr>-->
-        <!--            </thead>-->
-        <!--            <tbody>-->
-        <!--            --><?// if(is_array($data['result'])):?>
-        <!--                --><?// foreach($data['result'] as $item):?>
-        <!--                    <tr>-->
-        <!--                        <td>--><?//=$item['id'];?><!--</td>-->
-        <!--                        <td>--><?//=$item['name'];?><!--</td>-->
-        <!--                        <td>--><?//=$item['parent'];?><!--</td>-->
-        <!--                    </tr>-->
-        <!--                --><?// endforeach;?>
-        <!--            --><?// else:?>
-        <!--                <tr>-->
-        <!--                    <td colspan="2">Нет данных</td>-->
-        <!--                </tr>-->
-        <!--            --><?// endif;?>
-        <!--            </tbody>-->
-        <!--        </table>-->
+        <h2 class="sub-header">Тестовый массив</h2>
+        <? foreach($data['input'] as $item):?>
+            <p>
+                <? foreach ($item as $value):?>
+                    <?=$value?>,
+                <? endforeach;?>
+            </p>
+        <? endforeach;?>
+        <hr>
+        <h2 class="sub-header">Полученный результат</h2>
+        <? foreach($data['result'] as $item):?>
+            <p>
+                <? foreach ($item as $value):?>
+                    <?=$value?>,
+                <? endforeach;?>
+            </p>
+        <? endforeach;?>
+        <hr>
     </div>
 
 <? require_once(DIR_ROOT.'/views/pages/layouts/footer.php'); ?>

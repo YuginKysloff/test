@@ -24,4 +24,13 @@ class Model_Table {
         $result = Lib_Db::query("SELECT * FROM `tree`");
         return $result;
     }
+
+    public function getQuery5() {
+        $result = Lib_Db::query("SELECT t1.* FROM `tree` t1 
+                                JOIN `tree` t2 ON t2.id=t1.parent 
+                                JOIN `tree` t3 ON t3.id=t2.parent 
+                                LEFT JOIN `tree` t4 ON t4.parent=t1.id 
+                                WHERE t4.id IS null");
+        return $result;
+    }
 }
