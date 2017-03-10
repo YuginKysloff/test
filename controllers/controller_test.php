@@ -20,6 +20,7 @@ class Controller_Test {
             preg_match_all("/\[([^:]+):([^\]]*)\](.*)\[\/[^\]]+\]/Us", $this->data['text'], $this->data['result']);
         }
 
+        // Возвращение вида
         $page = Core_View::load('task1', $this->data);
         return $page;
     }
@@ -41,21 +42,60 @@ class Controller_Test {
             }
         }
 
+        // Возвращение вида
         $page = Core_View::load('task2', $this->data);
         return $page;
     }
 
     public function task3() {
 
-        $result = $this->obj['model_table']->get_tree();
+        // Получение всех данных из tree
+        $this->data['result'] = $this->obj['model_table']->getTree();
 
-        var_dump($result);
-
+        // Возвращение вида
         $page = Core_View::load('task3', $this->data);
         return $page;
     }
 
     public function fill() {
-        echo 'OK';
+
+        // Очистка таблицы
+        $this->obj['model_table']->truncate();
+
+        // Строка алфавита
+        $abc = 'abcdefghijklmnopqrstuvwxyz';
+
+        // Длина строки
+        $max = strlen($abc);
+
+        // Заполнение таблицы tree
+        for($i = 0; $i < 50; $i++) {
+
+            // Формирование поля name
+            $name = '';
+            for($j = 0; $j < 10; $j++) {
+                $name .= $abc[mt_rand(0, $max)];
+            }
+
+            // Формирование поля parent
+            $parent = ($i < 5) ? 0 : mt_rand(1, 5);
+
+            // Добавление строки в таблицу базы данных
+            $this->obj['model_table']->addLine(['name' => $name, 'parent' => $parent]);
+        }
+
+        // Получение всех данных из tree
+        $this->data['result'] = $this->obj['model_table']->getTree();
+
+        // Возвращение вида
+        $page = Core_View::load('task3', $this->data);
+        return $page;
+    }
+
+    public function tree() {
+
+        // Возвращение вида
+        $page = Core_View::load('tree', $this->data);
+        return $page;
     }
 }

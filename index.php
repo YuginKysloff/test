@@ -1,4 +1,11 @@
 <?
+
+// Определение минимальных требований PHP
+define('MINIMUM_PHP', '7.0.0');
+
+if(version_compare(PHP_VERSION, MINIMUM_PHP, '<'))
+    die('Your host needs to use PHP ' . MINIMUM_PHP . ' or higher to run this version of application!');
+
 // Определение константы для запрета прямого доступа к файлам
 define('CONSTANT', 1);
 

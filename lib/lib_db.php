@@ -37,7 +37,7 @@ class Lib_Db {
 		// Если есть ошибки - перенаправляем их в лог
 		if($obj->db->errno) {
 			trigger_error("mysqli error #".$obj->db->errno.": ".$obj->db->error, E_USER_WARNING);
-			exit(Lib_Main::rew_page('errors/data'));
+			exit('DB error');
 		}
 
 		// Возврат id при вставке(insert)

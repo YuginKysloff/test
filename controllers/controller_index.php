@@ -9,7 +9,7 @@ class Controller_Index {
     // Метод по умолчанию
     public function index() {
 
-        // Формирование вида
+        // Возвращение вида
         $page = Core_View::load('resume', $this->data);
         return $page;
     }

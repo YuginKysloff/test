@@ -6,8 +6,21 @@ class Model_Table {
         Lib_Db::instance();
     }
 
-    // Получение количества новостей
-    public function get_tree() {
+    public function truncate() {
+        $result = Lib_db::query("TRUNCATE TABLE `tree`");
+        return $result;
+    }
+
+    // Добавление строки
+    public function addLine($data) {
+        $result = Lib_db::query("INSERT INTO `tree` 
+                                (`name`, `parent`) 
+                                VALUES ('{$data['name']}', '{$data['parent']}')");
+        return $result;
+    }
+
+    // Получение всех данных
+    public function getTree() {
         $result = Lib_Db::query("SELECT * FROM `tree`");
         return $result;
     }
