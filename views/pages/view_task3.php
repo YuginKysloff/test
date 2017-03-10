@@ -9,11 +9,11 @@
         <a class="btn btn-default" href="/test/tree">Дерево</a>
         <table class="table table-striped table-hover">
             <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Parent</th>
-            </tr>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Parent</th>
+                </tr>
             </thead>
             <tbody>
             <? if(is_array($data['result'])):?>

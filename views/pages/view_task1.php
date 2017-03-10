@@ -33,10 +33,10 @@
         <hr>
         <table class="table table-striped table-hover">
             <thead>
-            <tr>
-                <th>Ключ</th>
-                <th>Описание</th>
-            </tr>
+                <tr>
+                    <th>Ключ</th>
+                    <th>Описание</th>
+                </tr>
             </thead>
             <tbody>
             <? if($data['text']):?>

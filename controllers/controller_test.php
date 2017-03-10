@@ -12,10 +12,15 @@ class Controller_Test {
         $this->obj['model_table'] = new Model_Table();
     }
 
+    /**
+     * Задача 1
+     */
     public function task1() {
 
+        // Получение текста из файла
         $this->data['text'] = file_get_contents(DIR_ROOT.'/assets/text1.txt');
 
+        // Если текст получен обработка с помощью регулярного выражения
         if($this->data['text']) {
             preg_match_all("/\[([^:]+):([^\]]*)\](.*)\[\/[^\]]+\]/Us", $this->data['text'], $this->data['result']);
         }
@@ -25,6 +30,9 @@ class Controller_Test {
         return $page;
     }
 
+    /**
+     * Задача 2
+     */
     public function task2() {
 
         // Получение текста из файла
@@ -33,8 +41,10 @@ class Controller_Test {
         // Если текст получен обработка с помощью регулярного выражения
         if($this->data['text']) {
 
+            // Массив доступных тегов
             $tags = ['raz', 'dva', 'tri'];
 
+            // Поиск тегов в тексте и вырезание соответствующего тегу текста
             foreach($tags as $key => $tag) {
                 preg_match("/$tag:(.*?)/Us", $this->data['text'], $match);
                 $this->data['result'][$tag] = $match[1];
@@ -47,6 +57,9 @@ class Controller_Test {
         return $page;
     }
 
+    /**
+     * Задача 3
+     */
     public function task3() {
 
         // Получение всех данных из tree
@@ -57,6 +70,9 @@ class Controller_Test {
         return $page;
     }
 
+    /**
+     * Заполнение данными таблицы для задачи 3
+     */
     public function fill() {
 
         // Очистка таблицы
@@ -87,13 +103,19 @@ class Controller_Test {
         // Получение всех данных из tree
         $this->data['result'] = $this->obj['model_table']->getTree();
 
+        // Перенаправление на страницу вывода таблицы
         header('location: /test/task3');
     }
 
+    /**
+     * Вывод дерева для задачи 3
+     */
     public function tree() {
 
         // Получение всех данных из tree
         $query = $this->obj['model_table']->getTree();
+
+        // Подготовка данных для построения дерева
         $arr = [];
         if($query) {
             foreach($query as $item) {
@@ -101,6 +123,7 @@ class Controller_Test {
             }
         }
 
+        // Вызов функции построения дерева
         $this->data['result'] = $this->getTree($arr, 0);
 
         // Возвращение вида
@@ -108,11 +131,23 @@ class Controller_Test {
         return $page;
     }
 
+    /**
+     * Рекурсивная функция построения дерева для задачи 3
+     * @param array $arr - данные для дерева
+     * @param integer $parent - id родителя
+     * @return string
+     */
     private function getTree($arr, $parent) {
+
+        // Если существуют строки с данным id родителя перебираем их
         if (isset($arr[$parent])) {
             $result .= '<ul>';
             foreach ($arr[$parent] as $key => $value) {
+
+                // Формирование строки результата
                 $result .= '<li>'.$value;
+
+                // Рекурсивный вызов функции построения дерева
                 $result .= $this->getTree($arr, $key);
                 $result .= '</li>';
             }
@@ -123,6 +158,9 @@ class Controller_Test {
         return $result;
     }
 
+    /**
+     * Задача 4
+     */
     public function task4() {
 
         // Возвращение вида
@@ -130,6 +168,9 @@ class Controller_Test {
         return $page;
     }
 
+    /**
+     * Задача 5
+     */
     public function task5() {
 
         // Возвращение вида
@@ -137,13 +178,29 @@ class Controller_Test {
         return $page;
     }
 
+    /**
+     * Задача 6
+     */
     public function task6() {
+
+        // Создание тестового массива
+        for($i = 0; $i < 1000000; $i++) {
+            $result[$i] = mt_rand(100000, 1500000);
+        }
+
+        $this->data['result'] = array_count_values($result);
+        foreach($this->data['result'] as $key => $item) {
+            if($item < 2) unset($this->data['result'][$key]);
+        }
 
         // Возвращение вида
         $page = Core_View::load('task6', $this->data);
         return $page;
     }
 
+    /**
+     * Задача 7
+     */
     public function task7() {
 
         // Возвращение вида
@@ -151,6 +208,9 @@ class Controller_Test {
         return $page;
     }
 
+    /**
+     * Задача 8
+     */
     public function task8() {
 
         // Возвращение вида

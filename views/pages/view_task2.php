@@ -10,10 +10,10 @@
         <h2 class="sub-header">Полученный результат</h2>
         <table class="table table-striped table-hover">
             <thead>
-            <tr>
-                <th>Ключ</th>
-                <th>Данные</th>
-            </tr>
+                <tr>
+                    <th>Ключ</th>
+                    <th>Данные</th>
+                </tr>
             </thead>
             <tbody>
             <? if($data['text']):?>
