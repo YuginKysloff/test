@@ -78,7 +78,7 @@ class Controller_Test {
             }
 
             // Формирование поля parent
-            $parent = ($i < 5) ? 0 : mt_rand(1, 5);
+            $parent = ($i < 5) ? 0 : mt_rand(0, 49);
 
             // Добавление строки в таблицу базы данных
             $this->obj['model_table']->addLine(['name' => $name, 'parent' => $parent]);
@@ -87,15 +87,74 @@ class Controller_Test {
         // Получение всех данных из tree
         $this->data['result'] = $this->obj['model_table']->getTree();
 
-        // Возвращение вида
-        $page = Core_View::load('task3', $this->data);
-        return $page;
+        header('location: /test/task3');
     }
 
     public function tree() {
 
+        // Получение всех данных из tree
+        $query = $this->obj['model_table']->getTree();
+        $arr = [];
+        if($query) {
+            foreach($query as $item) {
+                $arr[$item['parent']][$item['id']] = $item['name'];
+            }
+        }
+
+        $this->data['result'] = $this->getTree($arr, 0);
+
         // Возвращение вида
         $page = Core_View::load('tree', $this->data);
+        return $page;
+    }
+
+    private function getTree($arr, $parent) {
+        if (isset($arr[$parent])) {
+            $result .= '<ul>';
+            foreach ($arr[$parent] as $key => $value) {
+                $result .= '<li>'.$value;
+                $result .= $this->getTree($arr, $key);
+                $result .= '</li>';
+            }
+            $result .= '</ul>';
+        } else {
+            return null;
+        }
+        return $result;
+    }
+
+    public function task4() {
+
+        // Возвращение вида
+        $page = Core_View::load('task4', $this->data);
+        return $page;
+    }
+
+    public function task5() {
+
+        // Возвращение вида
+        $page = Core_View::load('task5', $this->data);
+        return $page;
+    }
+
+    public function task6() {
+
+        // Возвращение вида
+        $page = Core_View::load('task6', $this->data);
+        return $page;
+    }
+
+    public function task7() {
+
+        // Возвращение вида
+        $page = Core_View::load('task7', $this->data);
+        return $page;
+    }
+
+    public function task8() {
+
+        // Возвращение вида
+        $page = Core_View::load('task8', $this->data);
         return $page;
     }
 }

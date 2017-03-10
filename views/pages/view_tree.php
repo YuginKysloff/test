@@ -7,14 +7,9 @@
         <a class="btn btn-default" href="/test/task3">Таблица</a>
         <a class="btn btn-default" href="/test/fill">Заполнить таблицу</a>
         <a class="btn btn-default" href="/test/tree">Дерево</a>
-
-<!--        --><?// if(is_array($data['result'])):?>
-<!--            --><?// foreach($data['result'] as $item):?>
-<!--                    <p>--><?//=$item['name'];?><!--</p>-->
-<!--            --><?// endforeach;?>
-<!--        --><?// else:?>
-<!--                <p>Нет данных</p>-->
-<!--        --><?// endif;?>
+        <div class="container">
+            <?=$data['result'];?>
+        </div>
     </div>
 
 <? require_once(DIR_ROOT.'/views/pages/layouts/footer.php'); ?>
