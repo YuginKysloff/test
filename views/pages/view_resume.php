@@ -1,9 +1,7 @@
 <? defined('CONSTANT') or die; ?>
 <? require_once(DIR_ROOT . '/views/pages/layouts/header.php'); ?>
     <link rel="stylesheet" href="/views/css/resume.css">
-
     <div class="container">
-
         <div class="resume">
             <p class="resume__body">
             <p class="resume__title">Киселев Юрий Викторович</p>
@@ -120,8 +118,9 @@
                     </p>
                 </li>
             </ul>
-            </p></div>
-
+            </p>
+        </div>
+        <hr>
     </div>
 
 <? require_once(DIR_ROOT . '/views/pages/layouts/footer.php'); ?>

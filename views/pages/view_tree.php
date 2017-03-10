@@ -7,9 +7,9 @@
         <a class="btn btn-default" href="/test/task3">Таблица</a>
         <a class="btn btn-default" href="/test/fill">Заполнить таблицу</a>
         <a class="btn btn-default" href="/test/tree">Дерево</a>
-        <div class="container">
-            <?=$data['result'];?>
-        </div>
+        <hr>
+        <?=$data['result'];?>
+        <hr>
     </div>
 
 <? require_once(DIR_ROOT.'/views/pages/layouts/footer.php'); ?>

@@ -53,6 +53,7 @@
             <? endif;?>
             </tbody>
         </table>
+        <hr>
     </div>
 
 <? require_once(DIR_ROOT.'/views/pages/layouts/footer.php'); ?>
