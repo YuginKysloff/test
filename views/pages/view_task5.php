@@ -3,7 +3,7 @@
 
     <div class="container">
         <h1 class="page-header">Задача 5</h1>
-        <h2 class="sub-header">Полученный результат</h2>
+        <h2 class="sub-header">Выборка записей без потомков, но с 2-мя старшими родителями</h2>
         <hr>
         <table class="table table-striped table-hover">
             <thead>

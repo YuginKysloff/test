@@ -163,6 +163,8 @@ class Controller_Test {
      */
     public function task4() {
 
+        $this->data['result'] = $this->obj['model_table']->getQuery4();
+
         // Возвращение вида
         $page = Core_View::load('task4', $this->data);
         return $page;
@@ -185,9 +187,6 @@ class Controller_Test {
      */
     public function task6() {
 
-        // Начало выполнения
-        $start = microtime();
-
         // Создание тестового массива
         $arr = [];
         for($i = 0; $i < 1000000; $i++) {
@@ -204,12 +203,6 @@ class Controller_Test {
 
         // Подсчет повторяющихся элементов
         $this->data['count'] = count($arr);
-
-        // Конец выполнения
-        $end = microtime();
-
-        // Время выполнения
-        $this->data['time'] = round($end - $start, 4);
 
         // Возвращение вида
         $page = Core_View::load('task6', $this->data);
