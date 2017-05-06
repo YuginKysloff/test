@@ -10,7 +10,7 @@ class Controller_Index {
     public function index() {
 
         // Возвращение вида
-        $page = Core_View::load('resume', $this->data);
+        $page = Core_View::load('task', $this->data);
         return $page;
     }
 }
